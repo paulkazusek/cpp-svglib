@@ -43,6 +43,35 @@ namespace svglib
         std::uint8_t green_;
         std::uint8_t blue_;
     };
+
+    /**
+     * \brief 
+     */
+    class Size final
+    {
+    public:
+        constexpr Size() = delete;
+
+        constexpr Size( const double& width, const double& height )
+            : width_ { width }, height_ { height }
+        {}
+
+        constexpr ~Size() = default;
+
+        [[nodiscard]] constexpr auto width() const
+        {
+            return width_;
+        }
+
+        [[nodiscard]] constexpr auto height() const
+        {
+            return height_;
+        }
+
+    private:
+        double width_;
+        double height_;
+    };
 }
 
 #endif
