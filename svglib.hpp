@@ -8,6 +8,15 @@
 
 namespace svglib
 {
+    enum class ColorName : std::uint32_t
+    {
+        alice_blue = 0xF0F8FF,	/* rgb( 240, 248, 255) */
+        /* ... */
+        black = 0x000000,		/* rgb(   0,   0,   0) */
+        /* ... */
+        white = 0xFFFFFF		/* rgb( 255, 255, 255) */
+    };
+
     /**
      * \brief This is a RGB color.
      */
@@ -19,6 +28,13 @@ namespace svglib
         constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
             : red_ { red }, green_ { green }, blue_ { blue }
         {
+        }
+
+        constexpr explicit Color( ColorName color )
+        {
+            red_ = static_cast<std::uint32_t>( color ) >> 16 & 0xFF;
+            green_ = static_cast<std::uint32_t>( color ) >> 8 & 0xFF;
+            blue_ = static_cast<std::uint32_t>( color ) & 0xFF;
         }
 
         constexpr ~Color() = default;
