@@ -59,11 +59,11 @@ namespace svglib
 
     enum class ColorName : std::uint32_t
     {
-        alice_blue = 0xF0F8FF,      /* rgb( 240, 248, 255) */
-        /* ... */
-        black = 0x000000,		    /* rgb(   0,   0,   0) */
-        /* ... */
-        white = 0xFFFFFF		    /* rgb( 255, 255, 255) */
+		alice_blue = 0xF0F8FF,      /* rgb( 240, 248, 255) */
+		/* ... */
+		black = 0x000000,           /* rgb(   0,   0,   0) */
+		/* ... */
+		white = 0xFFFFFF            /* rgb( 255, 255, 255) */
     };
 
     /**
