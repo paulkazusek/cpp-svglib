@@ -16,10 +16,10 @@ namespace svglib
 	{
 		constexpr char to_lower( char character )
 		{
-		    if ( character >= 65 and character <= 90 )
-		        character += 97 - 65;
+			if ( character >= 65 and character <= 90 )
+				character += 97 - 65;
 
-		    return character;
+			return character;
 		}
 
 		constexpr std::array hex_digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
