@@ -57,8 +57,8 @@ namespace svglib
 		}
 	}
 
-    enum class ColorName : std::uint32_t
-    {
+	enum class ColorName : std::uint32_t
+	{
 		alice_blue = 0xF0F8FF,      /* rgb( 240, 248, 255 ) */
 		antique_white = 0xFAEBD7,   /* rgb( 250, 235, 215 ) */
 		aqua = 0x00FFFF,            /* rgb(   0, 255, 255 ) */
@@ -68,50 +68,50 @@ namespace svglib
 		black = 0x000000,           /* rgb(   0,   0,   0 ) */
 		/* ... */
 		white = 0xFFFFFF            /* rgb( 255, 255, 255 ) */
-    };
+	};
 
-    /**
-     * \brief This is a RGB color.
-     */
-    class Color final
-    {
-    public:
-        constexpr Color() = delete;
+	/**
+	 * \brief This is a RGB color.
+	 */
+	class Color final
+	{
+	public:
+		constexpr Color() = delete;
 
-        constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
-            : red_ { red }, green_ { green }, blue_ { blue }
-        {
-        }
+		constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
+	        : red_ { red }, green_ { green }, blue_ { blue }
+	    {
+	    }
 
-        constexpr explicit Color( const ColorName color )
-        {
-            red_ = static_cast<std::uint32_t>( color ) >> 16 & 0xFF;
-            green_ = static_cast<std::uint32_t>( color ) >> 8 & 0xFF;
-            blue_ = static_cast<std::uint32_t>( color ) & 0xFF;
-        }
+	    constexpr explicit Color( const ColorName color )
+	    {
+	        red_ = static_cast<std::uint32_t>( color ) >> 16 & 0xFF;
+	        green_ = static_cast<std::uint32_t>( color ) >> 8 & 0xFF;
+	        blue_ = static_cast<std::uint32_t>( color ) & 0xFF;
+	    }
 
-        constexpr ~Color() = default;
+	    constexpr ~Color() = default;
 
-        [[nodiscard]] constexpr auto red() const
-        {
-            return red_;
-        }
+	    [[nodiscard]] constexpr auto red() const
+	    {
+	        return red_;
+	    }
 
-        [[nodiscard]] constexpr auto green() const
-        {
-            return green_;
-        }
+	    [[nodiscard]] constexpr auto green() const
+	    {
+	        return green_;
+	    }
 
-        [[nodiscard]] constexpr auto blue() const
-        {
-            return blue_;
-        }
+	    [[nodiscard]] constexpr auto blue() const
+	    {
+	        return blue_;
+	    }
 
-    private:
-        std::uint8_t red_;
-        std::uint8_t green_;
-        std::uint8_t blue_;
-    };
+	private:
+	    std::uint8_t red_;
+	    std::uint8_t green_;
+	    std::uint8_t blue_;
+	};
 
     constexpr Color from_hex( std::string_view hex )
     {
