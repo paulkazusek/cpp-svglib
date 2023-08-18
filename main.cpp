@@ -12,7 +12,7 @@ auto main() -> int
     //std::cout << std::format( "rgb( {}, {}, {} )", color.red(), color.green(), color.blue() ) << std::endl;
 
     constexpr auto color = from_hex( "0077FF" );
-    constexpr  auto hex = to_hex( color );
+    const  auto hex = to_hex( color );
     std::cout << hex << std::endl;
 
     constexpr auto x = u8_to_hex_string( 127 );

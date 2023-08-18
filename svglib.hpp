@@ -59,11 +59,15 @@ namespace svglib
 
     enum class ColorName : std::uint32_t
     {
-		alice_blue = 0xF0F8FF,      /* rgb( 240, 248, 255) */
+		alice_blue = 0xF0F8FF,      /* rgb( 240, 248, 255 ) */
+		antique_white = 0xFAEBD7,   /* rgb( 250, 235, 215 ) */
+		aqua = 0x00FFFF,            /* rgb(   0, 255, 255 ) */
+		aquamarine = 0x7FFFD4,      /* rgb( 127, 255, 212 ) */
+		azure = 0xF0FFFF,           /* rgb( 240, 255, 255 ) */
 		/* ... */
-		black = 0x000000,           /* rgb(   0,   0,   0) */
+		black = 0x000000,           /* rgb(   0,   0,   0 ) */
 		/* ... */
-		white = 0xFFFFFF            /* rgb( 255, 255, 255) */
+		white = 0xFFFFFF            /* rgb( 255, 255, 255 ) */
     };
 
     /**
@@ -120,26 +124,13 @@ namespace svglib
         };
     }
 
-    //inline std::string to_hex( const Color& color )
-    //{
-    //	const auto r = u8_to_hex_string( color.red() );
-    //    const auto g = u8_to_hex_string( color.green() );
-    //    const auto b = u8_to_hex_string( color.blue() );
-
-    //    return std::string( r ) + std::string( g ) + std::string( b );
-    //}
-
     constexpr const char* to_hex( const Color& color )
     {
-        const auto r = u8_to_hex_string( color.red() );
-        const auto g = u8_to_hex_string( color.green() );
-        const auto b = u8_to_hex_string( color.blue() );
+        const auto red = u8_to_hex_string( color.red() );
+        const auto green = u8_to_hex_string( color.green() );
+        const auto blue = u8_to_hex_string( color.blue() );
 
-        //const auto hex = new char[6];
-        //const char* hex = new char[7] { r[0], r[1], g[0], g[1], b[0], b[1], '\0' };
-        return new char[7] { r[0], r[1], g[0], g[1], b[0], b[1], '\0' };
-        
-        //return std::string( r ) + std::string( g ) + std::string( b );
+        return new char[7] { red[0], red[1], green[0], green[1], blue[0], blue[1], '\0' };
     }
 
     /**
