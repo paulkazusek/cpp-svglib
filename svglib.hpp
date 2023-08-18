@@ -12,7 +12,7 @@
 
 namespace svglib
 {
-	namespace 
+	namespace
 	{
 		constexpr char to_lower( char character )
 		{
@@ -26,34 +26,34 @@ namespace svglib
 
 		constexpr bool is_hex_digit( const char character )
 		{
-		    return find( std::begin( hex_digits ), std::end( hex_digits ), to_lower( character ) ) != std::end( hex_digits );
+			return find( std::begin( hex_digits ), std::end( hex_digits ), to_lower( character ) ) != std::end( hex_digits );
 		}
 
 		constexpr const char* u8_to_hex_string( const std::uint8_t number )
 		{
-		    const char left = static_cast<char>( number >> 4 );
-		    const char right = static_cast<char>( number & 0x0f );
+			const char left = static_cast< char >( number >> 4 );
+			const char right = static_cast< char >( number & 0x0f );
 
-		    return new char[3] { hex_digits[left], hex_digits[right], '\0' };
+			return new char[3] { hex_digits[left], hex_digits[right], '\0' };
 		}
 
 		constexpr std::uint8_t hex_char_to_u8( char character )
 		{
-		    character = to_lower( character );
+			character = to_lower( character );
 
-		    if ( !is_hex_digit( character ) ) throw std::logic_error( "character must be a hexadecimal digit" );
+			if ( !is_hex_digit( character ) ) throw std::logic_error( "character must be a hexadecimal digit" );
 
-		    return ( character >= 'a' and character <= 'f' ) ? character - 97 + 10 : character - 48;
+			return ( character >= 'a' and character <= 'f' ) ? character - 97 + 10 : character - 48;
 		}
 
 		constexpr std::uint8_t hex_string_to_u8( std::string_view hex )
 		{
-		    if ( hex.length() != 2 ) throw std::logic_error( "hex must be 2 characters long" );
+			if ( hex.length() != 2 ) throw std::logic_error( "hex must be 2 characters long" );
 
-		    const std::uint8_t first = hex_char_to_u8( hex[0] ) * 16;
-		    const std::uint8_t second = hex_char_to_u8( hex[1] );
+			const std::uint8_t first = hex_char_to_u8( hex[0] ) * 16;
+			const std::uint8_t second = hex_char_to_u8( hex[1] );
 
-		    return first + second;
+			return first + second;
 		}
 	}
 
@@ -79,119 +79,119 @@ namespace svglib
 		constexpr Color() = delete;
 
 		constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
-	        : red_ { red }, green_ { green }, blue_ { blue }
-	    {
-	    }
+			: red_ { red }, green_ { green }, blue_ { blue }
+		{
+		}
 
-	    constexpr explicit Color( const ColorName color )
-	    {
-	        red_ = static_cast<std::uint32_t>( color ) >> 16 & 0xFF;
-	        green_ = static_cast<std::uint32_t>( color ) >> 8 & 0xFF;
-	        blue_ = static_cast<std::uint32_t>( color ) & 0xFF;
-	    }
+		constexpr explicit Color( const ColorName color )
+		{
+			red_ = static_cast< std::uint32_t >( color ) >> 16 & 0xFF;
+			green_ = static_cast< std::uint32_t >( color ) >> 8 & 0xFF;
+			blue_ = static_cast< std::uint32_t >( color ) & 0xFF;
+		}
 
-	    constexpr ~Color() = default;
+		constexpr ~Color() = default;
 
-	    [[nodiscard]] constexpr auto red() const
-	    {
-	        return red_;
-	    }
+		[[nodiscard]] constexpr auto red() const
+		{
+			return red_;
+		}
 
-	    [[nodiscard]] constexpr auto green() const
-	    {
-	        return green_;
-	    }
+		[[nodiscard]] constexpr auto green() const
+		{
+			return green_;
+		}
 
-	    [[nodiscard]] constexpr auto blue() const
-	    {
-	        return blue_;
-	    }
+		[[nodiscard]] constexpr auto blue() const
+		{
+			return blue_;
+		}
 
 	private:
-	    std::uint8_t red_;
-	    std::uint8_t green_;
-	    std::uint8_t blue_;
+		std::uint8_t red_;
+		std::uint8_t green_;
+		std::uint8_t blue_;
 	};
 
-    constexpr Color from_hex( std::string_view hex )
-    {
-        if ( hex.length() != 6 ) throw std::logic_error( "hex must be 6 characters long" );
+	constexpr Color from_hex( std::string_view hex )
+	{
+		if ( hex.length() != 6 ) throw std::logic_error( "hex must be 6 characters long" );
 
-        return Color {
-            hex_string_to_u8( hex.substr( 0, 2) ),
-            hex_string_to_u8( hex.substr( 2, 2) ),
-            hex_string_to_u8( hex.substr( 4, 2) )
-        };
-    }
+		return Color {
+			hex_string_to_u8( hex.substr( 0, 2 ) ),
+			hex_string_to_u8( hex.substr( 2, 2 ) ),
+			hex_string_to_u8( hex.substr( 4, 2 ) )
+		};
+	}
 
-    constexpr const char* to_hex( const Color& color )
-    {
-        const auto red = u8_to_hex_string( color.red() );
-        const auto green = u8_to_hex_string( color.green() );
-        const auto blue = u8_to_hex_string( color.blue() );
+	constexpr const char* to_hex( const Color& color )
+	{
+		const auto red = u8_to_hex_string( color.red() );
+		const auto green = u8_to_hex_string( color.green() );
+		const auto blue = u8_to_hex_string( color.blue() );
 
-        return new char[7] { red[0], red[1], green[0], green[1], blue[0], blue[1], '\0' };
-    }
+		return new char[7] { red[0], red[1], green[0], green[1], blue[0], blue[1], '\0' };
+	}
 
-    /**
-     * \brief 
-     */
-    class Size final
-    {
-    public:
-        constexpr Size() = delete;
+	/**
+	 * \brief
+	 */
+	class Size final
+	{
+	public:
+		constexpr Size() = delete;
 
-        constexpr Size( const double& width, const double& height )
-            : width_ { width }, height_ { height }
-        {}
+		constexpr Size( const double& width, const double& height )
+			: width_ { width }, height_ { height }
+		{}
 
-        constexpr ~Size() = default;
+		constexpr ~Size() = default;
 
-        [[nodiscard]] constexpr auto width() const
-        {
-            return width_;
-        }
+		[[nodiscard]] constexpr auto width() const
+		{
+			return width_;
+		}
 
-        [[nodiscard]] constexpr auto height() const
-        {
-            return height_;
-        }
+		[[nodiscard]] constexpr auto height() const
+		{
+			return height_;
+		}
 
-    private:
-        double width_;
-        double height_;
-    };
+	private:
+		double width_;
+		double height_;
+	};
 
-    class Point
-    {
-    public:
-        constexpr Point() = delete;
+	class Point
+	{
+	public:
+		constexpr Point() = delete;
 
-        constexpr Point( const double& x, const double& y )
-            : x_ { x }, y_ { y }
-        {}
+		constexpr Point( const double& x, const double& y )
+			: x_ { x }, y_ { y }
+		{}
 
-        constexpr ~Point() = default;
+		constexpr ~Point() = default;
 
-        [[nodiscard]] constexpr auto x() const
-        {
-            return x_;
-        }
+		[[nodiscard]] constexpr auto x() const
+		{
+			return x_;
+		}
 
-        [[nodiscard]] constexpr auto y() const
-        {
-            return y_;
-        }
+		[[nodiscard]] constexpr auto y() const
+		{
+			return y_;
+		}
 
-        constexpr auto operator==( const Point& other ) const -> bool
-        {
+		constexpr auto operator==( const Point& other ) const -> bool
+		{
 			return x() == other.x() and y() == other.y();
-        }
+		}
 
-    private:
-        double x_;
-        double y_;
-    };
+	private:
+		double x_;
+		double y_;
+	};
 }
 
 #endif
