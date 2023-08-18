@@ -64,6 +64,7 @@ namespace svglib
 		aqua = 0x00FFFF,            /* rgb(   0, 255, 255 ) */
 		aquamarine = 0x7FFFD4,      /* rgb( 127, 255, 212 ) */
 		azure = 0xF0FFFF,           /* rgb( 240, 255, 255 ) */
+		beige = 0xF5F5DC,			/* rgb( 245, 245, 220 ) */
 		/* ... */
 		black = 0x000000,           /* rgb(   0,   0,   0 ) */
 		/* ... */
