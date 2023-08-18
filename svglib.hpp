@@ -64,14 +64,14 @@ namespace svglib
 		aqua = 0x00FFFF,            /*!< rgb(   0, 255, 255 ) */
 		aquamarine = 0x7FFFD4,      /*!< rgb( 127, 255, 212 ) */
 		azure = 0xF0FFFF,           /*!< rgb( 240, 255, 255 ) */
-		beige = 0xF5F5DC,			/*!< rgb( 245, 245, 220 ) */
-		bisque = 0xFFE4C4,			/*!< rgb( 255, 228, 196 ) */
+		beige = 0xF5F5DC,           /*!< rgb( 245, 245, 220 ) */
+		bisque = 0xFFE4C4,          /*!< rgb( 255, 228, 196 ) */
 		black = 0x000000,           /*!< rgb(   0,   0,   0 ) */
-		blanched_almond = 0xFFEBCD,	/*!< rgb( 255, 235, 205 ) */
-		blue = 0x0000FF,			/*!< rgb(   0,   0, 255 ) */
-		blue_violet = 0x8A2BE2,		/*!< rgb( 138,  43, 226 ) */
-		brown = 0xA52A2A,			/*!< rgb( 165,  42,  42 ) */
-		burly_wood = 0xDEB887,		/*!< rgb( 222, 184, 135 ) */
+		blanched_almond = 0xFFEBCD, /*!< rgb( 255, 235, 205 ) */
+		blue = 0x0000FF,            /*!< rgb(   0,   0, 255 ) */
+		blue_violet = 0x8A2BE2,     /*!< rgb( 138,  43, 226 ) */
+		brown = 0xA52A2A,           /*!< rgb( 165,  42,  42 ) */
+		burly_wood = 0xDEB887,      /*!< rgb( 222, 184, 135 ) */
 		/* ... */
 		white = 0xFFFFFF            /*!< rgb( 255, 255, 255 ) */
 	};
