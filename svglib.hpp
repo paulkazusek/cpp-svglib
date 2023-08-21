@@ -5,7 +5,8 @@
 #define SVGLIB_HPP
 
 #include <array>
-#include <string>
+//#include <string>
+#include <format>
 #include <string_view>
 #include <stdexcept>
 #include <algorithm>
@@ -199,5 +200,19 @@ namespace svglib
 		double y_;
 	};
 }
+
+template <>
+struct std::formatter<svglib::Color>
+{
+	constexpr auto parse( std::format_parse_context& context )
+	{
+		return context.end();
+	}
+
+	auto format( const svglib::Color& color, std::format_context& context ) const
+	{
+		return std::format_to( context.out(), "{}, {}, {}", color.red(), color.green(), color.blue() );
+	}
+};
 
 #endif
