@@ -18,6 +18,7 @@ auto main() -> int
     const auto x = u8_to_hex_string( 127 );
 
     std::cout << std::format( "rgb( {} )", color) << std::endl;
+    std::cout << std::format( "rgb( {} )", Color( ColorName::brown ) ) << std::endl;
 
     return EXIT_SUCCESS;
 }
