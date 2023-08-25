@@ -13,5 +13,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(
     ${PROJECT_NAME}
     main.cpp
-    svglib.hpp
+    src/color.hpp
+    src/svglib.hpp
 )
