@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.20.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.23.0 FATAL_ERROR)
 
 project (
-    svglib
+    cpp-svglib
     VERSION 0.0
     DESCRIPTION "A C++ compile-time svg library"
     LANGUAGES CXX
@@ -10,9 +10,7 @@ project (
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(
-    ${PROJECT_NAME}
-    main.cpp
-    src/color.hpp
-    src/svglib.hpp
-)
+add_subdirectory(src/svglib)
+add_subdirectory(src/example)
+
+set_target_properties(svglib PROPERTIES LINKER_LANGUAGE CXX)

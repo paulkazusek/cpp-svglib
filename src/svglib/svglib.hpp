@@ -6,19 +6,11 @@
 
 #include "color.hpp"
 
-#include <array>
-//#include <string>
-#include <format>
 #include <string_view>
-#include <stdexcept>
-#include <algorithm>
+
 
 namespace svglib
 {
-	
-
-	
-
 	/**
 	 * \brief
 	 */
