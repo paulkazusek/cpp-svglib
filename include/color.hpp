@@ -74,7 +74,7 @@ namespace svglib
 
 		constexpr ~Color() = default;
 
-		[[nodiscard]] constexpr auto red() const;
+		[[nodiscard]] constexpr std::uint8_t red() const;
 
 		[[nodiscard]] constexpr auto green() const
 		{
