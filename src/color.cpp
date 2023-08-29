@@ -47,11 +47,6 @@ namespace svglib
 		}
 	}
 
-	[[nodiscard]] constexpr std::uint8_t Color::red() const
-	{
-		return red_;
-	}
-
 	constexpr svglib::Color from_hex( std::string_view hex )
 	{
 		if( hex.length() != 6 ) throw std::logic_error( "hex must be 6 characters long" );
