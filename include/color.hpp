@@ -4,9 +4,7 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 
-#include <array>
 #include <format>
-#include <stdexcept>
 #include <string_view>
 
 namespace svglib
@@ -27,10 +25,10 @@ namespace svglib
 		brown = 0xA52A2A,				/*!< rgb( 165,  42,  42 ) */
 		burly_wood = 0xDEB887,			/*!< rgb( 222, 184, 135 ) */
 		/* ... */
-		white = 0xFFFFFF				/*!< rgb( 255, 255, 255 ) */
+		white = 0xFFFFFF,				/*!< rgb( 255, 255, 255 ) */
 	};
 
-	std::string_view to_string( ColorName name )
+	inline std::string_view to_string( const ColorName name )
 	{
 		switch( name )
 		{
@@ -61,7 +59,9 @@ namespace svglib
 		constexpr Color() = delete;
 
 		constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
-			: red_ { red }, green_ { green }, blue_ { blue }
+			: red_ { red }
+			, green_ { green }
+			, blue_ { blue }
 		{
 		}
 
@@ -74,10 +74,7 @@ namespace svglib
 
 		constexpr ~Color() = default;
 
-		[[nodiscard]] constexpr std::uint8_t red() const
-		{
-			return red_;
-		}
+		[[nodiscard]] constexpr auto red() const->std::uint8_t;
 
 		[[nodiscard]] constexpr auto green() const
 		{
@@ -105,6 +102,11 @@ namespace svglib
 		std::uint8_t green_;
 		std::uint8_t blue_;
 	};
+
+	[[nodiscard]] constexpr std::uint8_t Color::red() const
+	{
+		return red_;
+	}
 
 	constexpr Color from_hex( std::string_view hex );
 

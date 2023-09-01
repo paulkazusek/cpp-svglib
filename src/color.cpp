@@ -1,5 +1,8 @@
 #include "color.hpp"
 
+#include <array>
+#include <stdexcept>
+
 namespace svglib
 {
 	namespace
