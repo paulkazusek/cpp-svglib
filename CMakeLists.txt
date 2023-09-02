@@ -5,34 +5,23 @@ project(
     VERSION 0.0.1
     LANGUAGES CXX)
 
-#include(CheckCXXCompilerFlag)
-#CHECK_CXX_COMPILER_FLAG("-std=c++20" COMPILER_SUPPORTS_CXX20)
-#if(COMPILER_SUPPORTS_CXX20)
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
-#elseif(COMPILER_SUPPORTS_CXX0X)
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-#else()
-#        message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++20 support. Please use a different C++ compiler.")
-#endif()
-
-#set (CMAKE_CXX_FLAGS "-std=c++20 ${CMAKE_CXX_FLAGS}")
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} INTERFACE)
 
-target_sources(${PROJECT_NAME} PRIVATE src/color.cpp)
+target_sources(${PROJECT_NAME} INTERFACE)
 
 include(GNUInstallDirs)
 
 target_include_directories(
-    ${PROJECT_NAME}
-    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
-           $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+    ${PROJECT_NAME} INTERFACE 
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+        #$<INSTALL_INTERFACE:include/>)
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE -D_EXPORT)
+#target_compile_definitions(${PROJECT_NAME} PRIVATE -D_EXPORT)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
 
