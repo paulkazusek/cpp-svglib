@@ -1,4 +1,5 @@
 #include "color.hpp"
+#include "point.hpp"
 //#include "svglib.hpp"
 
 #include <iostream>
@@ -22,6 +23,16 @@ auto main() -> int
     //std::cout << std::format( "color=\"{}\"", Color( ColorName::brown ) ) << std::endl;
 
     //std::cout << std::format( "hello svglib" );
+
+    constexpr auto start_point = svglib::Point( 10.0, 10.0 );
+    std::cout << std::format( "point( {}, {} )", start_point.x(), start_point.y() ) << std::endl;
+    constexpr auto end_point = svglib::Point( 10.0, 10.0 );
+    std::cout << std::format( "point( {}, {} )", end_point.x(), end_point.y() ) << std::endl;
+
+    if constexpr (start_point == end_point )
+    {
+        std::cout << "start_point == end_point" << std::endl;
+    }
 
     return EXIT_SUCCESS;
 }
