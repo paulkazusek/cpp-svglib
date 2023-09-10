@@ -6,6 +6,7 @@
 
 #include "color.hpp"
 #include "point.hpp"
+#include "line.hpp"
 #include "size.hpp"
 
 #endif

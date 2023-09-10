@@ -1,5 +1,6 @@
 #include "color.hpp"
 #include "point.hpp"
+#include "line.hpp"
 //#include "svglib.hpp"
 
 #include <iostream>
@@ -33,6 +34,8 @@ auto main() -> int
     {
         std::cout << "start_point == end_point" << std::endl;
     }
+
+    constexpr auto line = svglib::Line( start_point, end_point );
 
     return EXIT_SUCCESS;
 }
