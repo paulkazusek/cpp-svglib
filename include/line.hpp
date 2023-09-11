@@ -1,5 +1,5 @@
 //
-//  svglib.hpp
+//  line.hpp
 
 #ifndef LINE_HPP
 #define LINE_HPP

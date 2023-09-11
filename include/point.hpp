@@ -1,5 +1,5 @@
 //
-//  svglib.hpp
+//  point.hpp
 
 #ifndef POINT_HPP
 #define POINT_HPP

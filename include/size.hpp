@@ -1,5 +1,5 @@
 //
-//  color.hpp
+//  size.hpp
 
 #ifndef SIZE_HPP
 #define SIZE_HPP
