@@ -1,0 +1,4 @@
+# C/C++ build outputs
+.vs/
+.build/
+build/
