@@ -1,6 +1,7 @@
 #include "color.hpp"
 #include "point.hpp"
 #include "line.hpp"
+#include "fill.hpp"
 //#include "svglib.hpp"
 
 #include <iostream>
@@ -30,12 +31,18 @@ auto main() -> int
     constexpr auto end_point = svglib::Point( 10.0, 10.0 );
     std::cout << std::format( "point( {}, {} )", end_point.x(), end_point.y() ) << std::endl;
 
+    constexpr  auto test = start_point.serialize();
+	std::cout << test << std::endl;
+
     if constexpr (start_point == end_point )
     {
         std::cout << "start_point == end_point" << std::endl;
     }
 
     constexpr auto line = svglib::Line( start_point, end_point );
+
+    constexpr auto black_color = Color( ColorName::black );
+    constexpr auto black_fill = svglib::Fill( black_color );
 
     return EXIT_SUCCESS;
 }
