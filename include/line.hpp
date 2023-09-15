@@ -4,7 +4,7 @@
 #ifndef LINE_HPP
 #define LINE_HPP
 
-class Point;
+#include "point.hpp"
 
 namespace svglib
 {

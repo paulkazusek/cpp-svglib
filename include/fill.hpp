@@ -4,9 +4,9 @@
 #ifndef FILL_HPP
 #define FILL_HPP
 
-#include <optional>
+#include "color.hpp"
 
-class Color;
+#include <optional>
 
 namespace svglib
 {
@@ -16,7 +16,8 @@ namespace svglib
 		constexpr Fill() = delete;
 
 		constexpr Fill( Color color, const std::optional<double>& opacity = std::nullopt )
-		: color_ { std::move( color ) }
+		//: color_ { std::move( color ) }
+		: color_ { color }
 		, opacity_ { opacity }
 		{}
 
