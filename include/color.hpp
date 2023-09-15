@@ -60,11 +60,10 @@ namespace svglib
 		constexpr Color() = delete;
 
 		constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
-			: red_ { red }
-			, green_ { green }
-			, blue_ { blue }
-		{
-		}
+		: red_ { red }
+		, green_ { green }
+		, blue_ { blue }
+		{}
 
 		constexpr explicit Color( const ColorName color )
 		{
@@ -75,17 +74,11 @@ namespace svglib
 
 		constexpr ~Color() = default;
 
-		[[nodiscard]] constexpr auto red() const->std::uint8_t;
+		[[nodiscard]] constexpr auto red() const -> std::uint8_t;
 
-		[[nodiscard]] constexpr auto green() const
-		{
-			return green_;
-		}
+		[[nodiscard]] constexpr auto green() const -> std::uint8_t;
 
-		[[nodiscard]] constexpr auto blue() const
-		{
-			return blue_;
-		}
+		[[nodiscard]] constexpr auto blue() const -> std::uint8_t;
 
 		[[nodiscard]] explicit constexpr operator std::uint32_t() const
 		{
@@ -104,12 +97,22 @@ namespace svglib
 		std::uint8_t blue_;
 	};
 
-	[[nodiscard]] constexpr std::uint8_t Color::red() const
+	constexpr auto Color::red() const -> std::uint8_t
 	{
 		return red_;
 	}
 
-	constexpr svglib::Color from_hex( std::string_view hex )
+	constexpr auto Color::green() const -> std::uint8_t
+	{
+		return green_;
+	}
+
+	constexpr auto Color::blue() const -> std::uint8_t
+	{
+		return blue_;
+	}
+
+	constexpr Color from_hex( std::string_view hex )
 	{
 		if( hex.length() != 6 ) throw std::logic_error( "hex must be 6 characters long" );
 
