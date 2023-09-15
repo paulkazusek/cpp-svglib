@@ -63,7 +63,7 @@ namespace svglib
 	/*constexpr*/
 	inline auto Point::serialize() const -> std::string
 	{
-		return std::format( R"(x="{}" y="{}")", x_, y_ );
+		return std::format( R"(x="{:.2f}" y="{:.2f}")", x_, y_ );
 	}
 }
 
