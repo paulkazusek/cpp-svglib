@@ -4,10 +4,10 @@
 #ifndef LINE_HPP
 #define LINE_HPP
 
-#include "point.hpp"
-
 namespace svglib
 {
+	class Point;
+
 	/**
 	 * \brief
 	 */

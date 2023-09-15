@@ -4,12 +4,12 @@
 #ifndef FILL_HPP
 #define FILL_HPP
 
-#include "color.hpp"
-
 #include <optional>
 
 namespace svglib
 {
+	class Color;
+
 	class Fill
 	{
 	public:

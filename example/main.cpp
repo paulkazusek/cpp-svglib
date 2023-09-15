@@ -4,12 +4,9 @@
 
 using namespace svglib;
 
-//using svglib::Color;
-//using svglib::ColorName;
-
 auto main() -> int
 {
-    //constexpr auto color = svglib::Color( 211, 211, 211 );
+    //constexpr auto color = Color( 211, 211, 211 );
     constexpr auto alice_blue = Color( ColorName::alice_blue );
     std::cout << std::format( "rgb( {}, {}, {} )", alice_blue.red(), alice_blue.green(), alice_blue.blue() ) << std::endl;
 
