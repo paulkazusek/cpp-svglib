@@ -16,8 +16,7 @@ namespace svglib
 
 		virtual constexpr ~Serializeable() = default;
 
-		//[[nodiscard]] virtual constexpr std::string serialize() const = 0;
-		[[nodiscard]] virtual constexpr const char* serialize() const = 0;
+		[[nodiscard]] virtual /*constexpr*/ std::string serialize() const = 0;
 	};
 }
 

@@ -6,6 +6,7 @@
 
 #include "serializeable.hpp"
 
+#include <format>
 #include <string>
 
 namespace svglib
@@ -28,8 +29,7 @@ namespace svglib
 
 		constexpr auto operator==( const Point& other ) const -> bool;
 
-		//[[nodiscard]] /*constexpr*/ std::string serialize() const override;
-		[[nodiscard]] constexpr const char* serialize() const override;
+		[[nodiscard]] /*constexpr*/ std::string serialize() const override;
 
 	private:
 		double x_;
@@ -61,20 +61,9 @@ namespace svglib
 	}
 
 	/*constexpr*/
-	//inline std::string Point::serialize() const
-	constexpr const char* Point::serialize() const
+	inline auto Point::serialize() const -> std::string
 	{
-		const auto x_start = "x=\"";
-		const auto y_start = "\" y=\"";
-		const auto end = "\"";
-
-		const auto x_value = "10.0";
-		const auto y_value = "10.5";
-
-		//auto result = static_cast<char*>( malloc( ( strlen( x_start ) + strlen( x_value ) + strlen( y_start ) + strlen( y_value ) + strlen( x_value ) ) * sizeof( char ) ) );
-
-		return "";
-		//return R"(x="" y="")";
+		return std::format( R"(x="{}" y="{}")", x_, y_ );
 	}
 }
 
