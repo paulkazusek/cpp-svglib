@@ -5,6 +5,7 @@
 #define COLOR_HPP
 
 #include "conversion.hpp"
+#include "serializeable.hpp"
 
 #include <format>
 
@@ -54,7 +55,7 @@ namespace svglib
 	/**
 	 * \brief This is a RGB color.
 	 */
-	class Color final
+	class Color final : public Serializeable
 	{
 	public:
 		constexpr Color() = delete;
@@ -91,6 +92,8 @@ namespace svglib
 			return ( red_ << 16 ) + ( green_ << 8 ) + blue_;
 		}
 
+		[[nodiscard]] /*constexpr*/ std::string serialize() const override;
+
 	private:
 		std::uint8_t red_;
 		std::uint8_t green_;
@@ -112,11 +115,17 @@ namespace svglib
 		return blue_;
 	}
 
+	/*constexpr*/
+	inline auto Color::serialize() const -> std::string
+	{
+		return std::format( "{}", *this );
+	}
+
 	constexpr Color from_hex( std::string_view hex )
 	{
 		if( hex.length() != 6 ) throw std::logic_error( "hex must be 6 characters long" );
 
-		return svglib::Color {
+		return Color {
 			conversion::hex_string_to_u8( hex.substr( 0, 2 ) ),
 				conversion::hex_string_to_u8( hex.substr( 2, 2 ) ),
 				conversion::hex_string_to_u8( hex.substr( 4, 2 ) )
