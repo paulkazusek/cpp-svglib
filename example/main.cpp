@@ -8,10 +8,14 @@ auto main() -> int
 {
     //constexpr auto color = Color( 211, 211, 211 );
     constexpr auto alice_blue = Color( ColorName::alice_blue );
+    std::cout << "color=\"" << alice_blue.serialize() << "\"" << std::endl;
     std::cout << std::format( "rgb( {}, {}, {} )", alice_blue.red(), alice_blue.green(), alice_blue.blue() ) << std::endl;
 
     using svglib::from_hex;
     constexpr auto color = from_hex( "0077FF" );
+    std::cout << "color=\"" << color.serialize() << "\"" << std::endl;
+    return 0;
+
     const  auto hex = to_hex( color );
     std::cout << hex << std::endl;
 
