@@ -14,6 +14,10 @@ auto main() -> int
     using svglib::from_hex;
     constexpr auto color = from_hex( "0077FF" );
     std::cout << "color=\"" << color.serialize() << "\"" << std::endl;
+
+    const auto black_stroke = Stroke( Color( ColorName::black ), 1.1, 1.5 );
+    std::cout << black_stroke.serialize() << std::endl;
+
     return 0;
 
     const  auto hex = to_hex( color );
