@@ -8,6 +8,7 @@
 #include "point.hpp"
 #include "line.hpp"
 #include "fill.hpp"
+#include "stroke.hpp"
 #include "size.hpp"
 
 #endif
