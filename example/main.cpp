@@ -18,6 +18,9 @@ auto main() -> int
     const auto black_stroke = Stroke( Color( ColorName::black ), 1.1, Opacity( 50 , OpacityUnit::percentage ) );
     std::cout << black_stroke.serialize() << std::endl;
 
+    const auto black_fill = Fill( Color( ColorName::black ), Opacity( 1.0, OpacityUnit::number ) );
+    std::cout << black_fill.serialize() << std::endl;
+
     return 0;
 
     const  auto hex = to_hex( color );
@@ -42,7 +45,6 @@ auto main() -> int
     constexpr auto line = svglib::Line( start_point, end_point );
 
     constexpr auto black_color = Color( ColorName::black );
-    constexpr auto black_fill = svglib::Fill( black_color );
 
     return EXIT_SUCCESS;
 }
