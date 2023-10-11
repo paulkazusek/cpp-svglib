@@ -9,11 +9,11 @@ namespace svglib
 	enum class Unit : std::uint8_t
 	{
 		/**
-		 * \brief decimal value ranging from 0-1
+		 * \brief decimal number
 		 */
 		number,
 		/**
-		 * \brief percentage at which we want to set the opacity of the element
+		 * \brief percentage 
 		 */
 		percentage
 	};
