@@ -5,6 +5,7 @@
 #define STROKE_HPP
 
 #include "opacity.hpp"
+#include "width.hpp"
 
 #include <optional>
 
@@ -17,7 +18,7 @@ namespace svglib
 	public:
 		constexpr Stroke() = delete;
 
-		constexpr Stroke( const Color& color, const double& width, std::optional<Opacity> opacity = std::nullopt )
+		constexpr Stroke( const Color& color, const Width& width, std::optional<Opacity> opacity = std::nullopt )
 		: color_ { color }
 		, width_ { width }
 		, opacity_ { std::move( opacity ) }
@@ -25,19 +26,16 @@ namespace svglib
 
 		[[nodiscard]] constexpr std::string serialize() const override
 		{
-			if ( width_ < 0 )
-				return std::string{};
-
 			std::string opacity;
 			if ( opacity_ )
 				opacity = " stroke-" + opacity_.value().serialize();
 
-			return std::format( R"(stroke="{}" stroke-width="{:.2f}")", color_.serialize(), width_ ) + opacity;
+			return std::format( R"(stroke="{}" stroke-{}")", color_.serialize(), width_.serialize() ) + opacity;
 		}
 
 	private:
 		Color color_;
-		double width_;
+		Width width_;
 		std::optional<Opacity> opacity_;
 	};
 };
