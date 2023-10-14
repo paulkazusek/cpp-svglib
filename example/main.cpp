@@ -11,14 +11,13 @@ auto main() -> int
     std::cout << "color=\"" << alice_blue.serialize() << "\"" << std::endl;
     std::cout << std::format( "rgb( {}, {}, {} )", alice_blue.red(), alice_blue.green(), alice_blue.blue() ) << std::endl;
 
-    using svglib::from_hex;
     constexpr auto color = from_hex( "0077FF" );
     std::cout << "color=\"" << color.serialize() << "\"" << std::endl;
 
-    const auto black_stroke = Stroke( Color( ColorName::black ), 1.1, Opacity( 50 , OpacityUnit::percentage ) );
+    constexpr auto black_stroke = Stroke( Color( ColorName::black ), Width( 1.1, Unit::number ), Opacity( 50, Unit::percentage ) );
     std::cout << black_stroke.serialize() << std::endl;
 
-    const auto black_fill = Fill( Color( ColorName::black ), Opacity( 1.0, OpacityUnit::number ) );
+    constexpr auto black_fill = Fill( Color( ColorName::black ), Opacity( 1.0, Unit::number ) );
     std::cout << black_fill.serialize() << std::endl;
 
     return 0;
