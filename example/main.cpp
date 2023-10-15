@@ -14,7 +14,7 @@ auto main() -> int
     constexpr auto color = from_hex( "0077FF" );
     std::cout << "color=\"" << color.serialize() << "\"" << std::endl;
 
-    constexpr auto black_stroke = Stroke( Color( ColorName::black ), Width( 1.1, Unit::number ), Opacity( 50, Unit::percentage ) );
+    constexpr auto black_stroke = Stroke( Color( ColorName::black ), Width( 1.1, Unit::number ), Opacity( 50.0, Unit::percentage ) );
     std::cout << black_stroke.serialize() << std::endl;
 
     constexpr auto black_fill = Fill( Color( ColorName::black ), Opacity( 1.0, Unit::number ) );
