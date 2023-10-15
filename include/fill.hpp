@@ -17,8 +17,7 @@ namespace svglib
 	public:
 		constexpr Fill() = delete;
 
-		constexpr Fill( Color color, std::optional<Opacity> opacity = std::nullopt )
-		//: color_ { std::move( color ) }
+		constexpr Fill( const Color& color, std::optional<Opacity> opacity = std::nullopt )
 		: color_ { color }
 		, opacity_ { std::move( opacity ) }
 		{}
