@@ -18,9 +18,9 @@ namespace svglib
 	public:
 		constexpr Stroke() = delete;
 
-		constexpr Stroke( const Color& color, const Width& width, std::optional<Opacity> opacity = std::nullopt )
+		constexpr Stroke( const Color& color, Width width, std::optional<Opacity> opacity = std::nullopt )
 		: color_ { color }
-		, width_ { width }
+		, width_ { std::move( width ) }
 		, opacity_ { std::move( opacity ) }
 		{}
 
