@@ -19,7 +19,7 @@ namespace svglib
 		 * \param opacity decimal value ranging from 0.0 to 1.0 or percentage from 0.0% to 100.0% at which we want to set the opacity of the element 
 		 * \param unit decimal number or percentage value
 		 */
-		explicit constexpr Opacity( const double& opacity, Unit unit = Unit::number )
+		explicit constexpr Opacity( const double& opacity, const Unit unit = Unit::number )
 		: opacity_ { opacity }
 		, unit_ { unit }
 		{}
