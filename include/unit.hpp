@@ -17,6 +17,6 @@ namespace svglib
 		 */
 		percentage
 	};
-};
+}
 
 #endif
