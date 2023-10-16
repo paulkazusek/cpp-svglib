@@ -38,6 +38,6 @@ namespace svglib
 		Width width_;
 		std::optional<Opacity> opacity_;
 	};
-};
+}
 
 #endif
