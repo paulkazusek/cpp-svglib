@@ -47,6 +47,6 @@ namespace svglib
 		double opacity_;
 		Unit unit_;
 	};
-};
+}
 
 #endif
