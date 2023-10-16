@@ -54,6 +54,6 @@ namespace svglib
 			return first + second;
 		}
 	}
-};
+}
 
 #endif
