@@ -13,14 +13,14 @@ namespace svglib
 	public:
 		constexpr Height() = delete;
 
-		explicit constexpr Height( const double& height, const Unit unit = Unit::number )
-		: height_ { height }
-		, unit_ { unit }
+		constexpr Height( const double& height, const Unit unit = Unit::number )
+			: height_ { height }
+			, unit_ { unit }
 		{}
 
-		[[nodiscard]] constexpr std::string serialize() const override
+		[[nodiscard]] /*constexpr*/ std::string serialize() const override
 		{
-			if ( unit_ == Unit::percentage )
+			if( unit_ == Unit::percentage )
 				return std::format( "height=\"{:}%\"", height_ );
 
 			return std::format( "height=\"{:.2f}\"", height_ );
@@ -30,6 +30,6 @@ namespace svglib
 		double height_;
 		Unit unit_;
 	};
-};
+}
 
 #endif
