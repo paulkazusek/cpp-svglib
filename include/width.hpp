@@ -13,7 +13,7 @@ namespace svglib
 	public:
 		constexpr Width() = delete;
 
-		explicit constexpr Width( const double& width, const Unit unit = Unit::number )
+		constexpr Width( const double& width, const Unit unit = Unit::number )
 		: width_ { width }
 		, unit_ { unit }
 		{}
@@ -30,6 +30,6 @@ namespace svglib
 		double width_;
 		Unit unit_;
 	};
-};
+}
 
 #endif
