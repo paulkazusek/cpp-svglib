@@ -35,6 +35,6 @@ namespace svglib
 		Color color_;
 		std::optional<Opacity> opacity_;
 	};
-};
+}
 
 #endif
