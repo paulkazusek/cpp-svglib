@@ -1,8 +1,8 @@
 //
 //  height.hpp
 
-#ifndef HEIGHT_HPP
-#define HEIGHT_HPP
+#ifndef SVGLIB_HEIGHT_HPP
+#define SVGLIB_HEIGHT_HPP
 
 #include "unit.hpp"
 
@@ -18,7 +18,7 @@ namespace svglib
 			, unit_ { unit }
 		{}
 
-		[[nodiscard]] /*constexpr*/ std::string serialize() const override
+		[[nodiscard]] constexpr std::string serialize() const override
 		{
 			if( unit_ == Unit::percentage )
 				return std::format( "height=\"{:}%\"", height_ );
