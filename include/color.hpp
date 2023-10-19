@@ -1,8 +1,8 @@
 //
 //  color.hpp
 
-#ifndef COLOR_HPP
-#define COLOR_HPP
+#ifndef SVGLIB_COLOR_HPP
+#define SVGLIB_COLOR_HPP
 
 #include "conversion.hpp"
 #include "serializeable.hpp"
