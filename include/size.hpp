@@ -1,18 +1,20 @@
 //
 //  size.hpp
 
-#ifndef SIZE_HPP
-#define SIZE_HPP
+#ifndef SVGLIB_SIZE_HPP
+#define SVGLIB_SIZE_HPP
 
 #include "height.hpp"
 #include "width.hpp"
 
 namespace svglib
 {
+	//class Height;
+	//class Width;
 	/**
 	 * \brief
 	 */
-	class Size final
+	class Size final : public Serializeable
 	{
 	public:
 		constexpr Size() = delete;
@@ -32,6 +34,11 @@ namespace svglib
 		[[nodiscard]] constexpr auto height() const
 		{
 			return height_;
+		}
+
+		[[nodiscard]] /*constexpr*/ std::string serialize() const override
+		{
+			return std::format( "{} {}", width_.serialize(), height_.serialize() );
 		}
 
 	private:
@@ -60,4 +67,5 @@ namespace svglib
 	 */
 	constexpr Size instagram_post_size_vertical { Width( 1080 ), Height( 1350 ) };
 }
+
 #endif
