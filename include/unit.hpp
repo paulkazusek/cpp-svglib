@@ -154,6 +154,11 @@ namespace svglib
 		return Unit { value, UnitType::pixel };
 	}
 
+	constexpr Unit operator"" _px( const unsigned long long int value )
+	{
+		return Unit { static_cast<long double>( value ), UnitType::pixel };
+	}
+
 	constexpr Unit operator"" _pt( const long double value )
 	{
 		return Unit { value, UnitType::point };
@@ -189,7 +194,11 @@ struct std::formatter<svglib::Unit> : std::formatter<std::string>
 {
 	auto format( const svglib::Unit& unit, std::format_context& context ) const
 	{
-		const auto out = std::format( "{:.2f}{}", unit.value(), unit.type() );
+		string out;
+		if ( const auto type = unit.type(); type == svglib::UnitType::pixel )
+			out = std::format( "{}{}", static_cast<int>( unit.value() ), unit.type() );
+		else
+			out = std::format( "{:.2f}{}", unit.value(), unit.type() );
 
 		return formatter<string>::format( out, context );
 	}
