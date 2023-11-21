@@ -1,8 +1,8 @@
 //
 //  serializeable.hpp
 
-#ifndef SERIALIZEABLE_HPP
-#define SERIALIZEABLE_HPP
+#ifndef SVGLIB_SERIALIZEABLE_HPP
+#define SVGLIB_SERIALIZEABLE_HPP
 
 namespace svglib
 {
@@ -12,11 +12,10 @@ namespace svglib
 	class Serializeable
 	{
 	public:
-		constexpr Serializeable() = default;
-
+		explicit constexpr Serializeable() = default;
 		virtual constexpr ~Serializeable() = default;
 
-		[[nodiscard]] virtual constexpr std::string serialize() const = 0;
+		virtual std::string serialize() const = 0;
 	};
 }
 
