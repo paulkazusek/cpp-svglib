@@ -9,9 +9,8 @@ namespace svglib
 	/**
 	 * \brief
 	 */
-	class Serializeable
+	struct Serializeable
 	{
-	public:
 		explicit constexpr Serializeable() = default;
 		virtual constexpr ~Serializeable() = default;
 
