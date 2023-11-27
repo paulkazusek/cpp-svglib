@@ -1,8 +1,8 @@
 //
 //  fill.hpp
 
-#ifndef FILL_HPP
-#define FILL_HPP
+#ifndef SVGLIB_FILL_HPP
+#define SVGLIB_FILL_HPP
 
 #include "opacity.hpp"
 
@@ -18,8 +18,8 @@ namespace svglib
 		constexpr Fill() = delete;
 
 		constexpr Fill( const Color& color, std::optional<Opacity> opacity = std::nullopt )
-		: color_ { color }
-		, opacity_ { std::move( opacity ) }
+			: color_ { color }
+			, opacity_ { std::move( opacity ) }
 		{}
 
 		[[nodiscard]] constexpr std::string serialize() const override
