@@ -1,8 +1,8 @@
 //
 //  conversion.hpp
 
-#ifndef CONVERSION_HPP
-#define CONVERSION_HPP
+#ifndef SVGLIB_CONVERSION_HPP
+#define SVGLIB_CONVERSION_HPP
 
 #include <array>
 #include <stdexcept>
