@@ -313,9 +313,9 @@ namespace svglib
 		constexpr Color() = delete;
 
 		constexpr Color( const std::uint8_t red, const std::uint8_t green, const std::uint8_t blue )
-		: red_ { red }
-		, green_ { green }
-		, blue_ { blue }
+			: red_ { red }
+			, green_ { green }
+			, blue_ { blue }
 		{}
 
 		constexpr explicit Color( const ColorName color )
@@ -408,10 +408,9 @@ struct std::formatter<svglib::Color>
 		const auto name = svglib::to_string( static_cast< svglib::ColorName >( value ) );
 
 		if( name.empty() )
-			//return std::format_to( context.out(), "rgb({},{},{})", color.red(), color.green(), color.blue() );
 			return std::format_to( context.out(), "#{}", to_hex( color ) );
-		else
-			return std::format_to( context.out(), "{}", name );
+		
+		return std::format_to( context.out(), "{}", name );
 	}
 };
 
