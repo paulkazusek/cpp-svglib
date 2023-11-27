@@ -4,13 +4,10 @@
 #ifndef SVGLIB_SIZE_HPP
 #define SVGLIB_SIZE_HPP
 
-#include "height.hpp"
-#include "width.hpp"
+#include "unit.hpp"
 
 namespace svglib
 {
-	//class Height;
-	//class Width;
 	/**
 	 * \brief
 	 */
@@ -19,53 +16,55 @@ namespace svglib
 	public:
 		constexpr Size() = delete;
 
-		constexpr Size( Width width, Height height )
-		: width_ { std::move( width ) }
-		, height_ { std::move( height ) }
+		constexpr Size( const Unit& width, const Unit& height )
+			: width_ { width }
+			, height_ { height }
 		{}
 
 		constexpr ~Size() = default;
 
-		[[nodiscard]] constexpr auto width() const
+		[[nodiscard]]
+		constexpr auto width() const
 		{
 			return width_;
 		}
 
-		[[nodiscard]] constexpr auto height() const
+		[[nodiscard]]
+		constexpr auto height() const
 		{
 			return height_;
 		}
 
-		[[nodiscard]] /*constexpr*/ std::string serialize() const override
+		[[nodiscard]] auto serialize() const -> std::string override
 		{
-			return std::format( "{} {}", width_.serialize(), height_.serialize() );
+			return std::format( "{} {}", width_, height_ );
 		}
 
 	private:
-		Width width_;
-		Height height_;
+		Unit width_;
+		Unit height_;
 	};
 
-	constexpr Size screen_4k { Width( 4096 ), Height( 2160 ) };
-	constexpr Size screen_ultra_hd { Width( 3840 ), Height( 2160 ) };
-	constexpr Size screen_ultra_wide { Width( 3840 ), Height( 1080 ) };
-	constexpr Size screen_full_hd { Width( 1920 ), Height( 1080 ) };
-	constexpr Size screen_hd { Width( 1280 ), Height( 720 ) };
+	constexpr Size screen_4k {4096_px, 2160_px };
+	constexpr Size screen_ultra_hd { 3840_px, 2160_px };
+	constexpr Size screen_ultra_wide { 3840_px, 1080_px };
+	constexpr Size screen_full_hd { 1920_px, 1080_px };
+	constexpr Size screen_hd { 1280_px, 720_px };
 
 	/**
 	The ideal size for square posts is 1080px by 1080px at a 1:1 aspect ratio.
 	*/
-	constexpr Size instagram_post_size_square { Width( 1080 ), Height( 1080 ) };
+	constexpr Size instagram_post_size_square { 1080_px, 1080_px };
 
 	/**
 	 The ideal size for landscape  posts is 1080px by 566px at a 1.91:1 aspect ratio.
 	 */
-	constexpr Size instagram_post_size_landscape { Width( 1080 ), Height( 566 ) };
+	constexpr Size instagram_post_size_landscape { 1080_px, 566_px };
 
 	/**
 	 The ideal size for vertical posts is 1080px by 1350px at a 4:5 aspect ratio.
 	 */
-	constexpr Size instagram_post_size_vertical { Width( 1080 ), Height( 1350 ) };
+	constexpr Size instagram_post_size_vertical { 1080_px, 1350_px };
 }
 
 #endif
