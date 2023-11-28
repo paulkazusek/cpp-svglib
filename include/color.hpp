@@ -352,6 +352,9 @@ namespace svglib
 		std::uint8_t blue_;
 	};
 
+	// Color constants
+	constexpr Color black { ColorName::black };
+
 	constexpr auto Color::red() const -> std::uint8_t
 	{
 		return red_;
@@ -384,7 +387,7 @@ namespace svglib
 		};
 	}
 
-	constexpr const char* to_hex( const svglib::Color& color )
+	constexpr const char* to_hex( const Color& color )
 	{
 		const auto red = conversion::u8_to_hex_string( color.red() );
 		const auto green = conversion::u8_to_hex_string( color.green() );
