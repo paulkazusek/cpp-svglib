@@ -1,8 +1,10 @@
 //
 //  line.hpp
 
-#ifndef LINE_HPP
-#define LINE_HPP
+#ifndef SVGLIB_LINE_HPP
+#define SVGLIB_LINE_HPP
+
+#include "serializeable.hpp"
 
 namespace svglib
 {
@@ -11,38 +13,43 @@ namespace svglib
 	/**
 	 * \brief
 	 */
-	class Line
+	class Line : public Serializeable
 	{
 	public:
 		constexpr Line() = delete;
 
-		constexpr Line( const Point& start, const Point& end );
+		constexpr Line( const Point& start, const Point& end )
+			: start_ { start }
+			, end_ { end }
+		{}
 
-		constexpr ~Line() = default;
+		constexpr ~Line() override = default;
 
-		[[nodiscard]] constexpr auto start() const -> Point;
+		[[nodiscard]] constexpr auto start() const -> Point
+		{
+			return start_;
+		}
 
-		[[nodiscard]] constexpr auto end() const -> Point;
+		[[nodiscard]] constexpr auto end() const -> Point
+		{
+			return end_;
+		}
+
+		[[nodiscard]]
+		auto serialize() const -> std::string override
+		{
+			return std::format( R"(x1="{}" y1="{}" x2="{}" y2="{}")"
+								, start_.x()
+								, start_.y()
+								, end_.x()
+								, end_.y()
+			);
+		}
 
 	private:
 		Point start_;
 		Point end_;
-	};
-
-	constexpr Line::Line( const Point& start, const Point& end )
-	: start_ { start }
-	, end_ { end }
-	{}
-
-	[[nodiscard]] constexpr auto Line::start() const -> Point
-	{
-		return start_;
-	}
-
-	[[nodiscard]] constexpr auto Line::end() const -> Point
-	{
-		return end_;
-	}
+	};	
 }
 
 #endif
