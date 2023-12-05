@@ -13,8 +13,9 @@ namespace svglib
 	{
 		explicit constexpr Serializeable() = default;
 		virtual constexpr ~Serializeable() = default;
+		constexpr Serializeable& operator=( const Serializeable& other ) = default;
 
-		virtual std::string serialize() const = 0;
+		[[nodiscard]] virtual std::string serialize() const = 0;
 	};
 }
 
