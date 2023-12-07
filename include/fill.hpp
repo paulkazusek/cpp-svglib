@@ -33,7 +33,7 @@ namespace svglib
 
 	private:
 		Color color_;
-		std::optional<Opacity> opacity_;
+		std::optional<Opacity> opacity_ = {};
 	};
 }
 
