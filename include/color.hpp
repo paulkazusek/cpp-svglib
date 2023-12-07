@@ -353,7 +353,7 @@ namespace svglib
 	};
 
 	// Color constants
-	constexpr Color black { ColorName::black };
+	inline constexpr Color black { ColorName::black };
 
 	constexpr auto Color::red() const -> std::uint8_t
 	{
