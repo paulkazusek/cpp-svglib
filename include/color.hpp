@@ -325,7 +325,9 @@ namespace svglib
 			blue_ = static_cast< std::uint32_t >( color ) & 0xFF;
 		}
 
-		constexpr ~Color() = default;
+		constexpr Color( const Color& ) = default;
+		Color& operator=( const Color& other ) = default;
+		constexpr ~Color() override = default;
 
 		[[nodiscard]] constexpr auto red() const -> std::uint8_t;
 
