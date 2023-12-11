@@ -18,31 +18,28 @@ namespace svglib
 	class Point : public Serializeable
 	{
 	public:
-		explicit constexpr Point() = delete;
+		constexpr Point() = delete;
 
-		constexpr Point( const Unit& x, const Unit& y ) noexcept
+		constexpr Point( const Unit& x, const Unit& y )
 			: x_ { x }
 			, y_ { y }
 		{}
 
-		//constexpr Point( const Point& ) = default;
+		constexpr Point( const Point& ) = default;
 		Point& operator=( const Point& other ) = default;
 		constexpr ~Point() override = default;
 
-		[[nodiscard]]
-		constexpr auto x() const -> Unit
+		[[nodiscard]] constexpr auto x() const -> Unit
 		{
 			return x_;
 		}
 
-		[[nodiscard]]
-		constexpr auto y() const -> Unit
+		[[nodiscard]] constexpr auto y() const -> Unit
 		{
 			return y_;
 		}
 
-		[[nodiscard]]
-		auto serialize() const -> std::string override
+		[[nodiscard]] auto serialize() const -> std::string override
 		{
 			return std::format( R"("{}")", *this );
 		}
@@ -67,7 +64,7 @@ namespace svglib
 		return Point { x, y };
 	}
 
-	std::shared_ptr<Point> make_shared_point( const Unit x, const Unit y ) noexcept
+	inline std::shared_ptr<Point> make_shared_point( const Unit x, const Unit y ) noexcept
 	{
 		return std::make_shared<Point>( x, y );
 	}
