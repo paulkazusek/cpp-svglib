@@ -21,6 +21,8 @@ namespace svglib
 			, height_ { height }
 		{}
 
+		constexpr Size( const Size& ) = default;
+		Size& operator=( const Size& other ) = default;
 		constexpr ~Size() override = default;
 
 		[[nodiscard]] constexpr auto width() const
