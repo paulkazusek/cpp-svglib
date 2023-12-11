@@ -23,14 +23,12 @@ namespace svglib
 
 		constexpr ~Size() override = default;
 
-		[[nodiscard]]
-		constexpr auto width() const
+		[[nodiscard]] constexpr auto width() const
 		{
 			return width_;
 		}
 
-		[[nodiscard]]
-		constexpr auto height() const
+		[[nodiscard]] constexpr auto height() const
 		{
 			return height_;
 		}
