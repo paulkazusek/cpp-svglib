@@ -17,23 +17,23 @@ namespace svglib
 	public:
 		constexpr Fill() = delete;
 
-		constexpr Fill( const Color& color, std::optional<Opacity> opacity = std::nullopt )
+		constexpr Fill( const Color& color, const std::optional<Unit>& opacity = std::nullopt )
 			: color_ { color }
-			, opacity_ { std::move( opacity ) }
+			, opacity_ { opacity }
 		{}
 
-		[[nodiscard]] constexpr std::string serialize() const override
+		[[nodiscard]] std::string serialize() const override
 		{
 			std::string opacity;
 			if( opacity_ )
-				opacity = " fill-" + opacity_.value().serialize();
+				opacity = std::format( R"( fill-opacity="{}")", opacity_.value());
 
 			return std::format( R"(fill="{}")", color_.serialize() ) + opacity;
 		}
 
 	private:
 		Color color_;
-		std::optional<Opacity> opacity_ = {};
+		std::optional<Unit> opacity_{};
 	};
 }
 

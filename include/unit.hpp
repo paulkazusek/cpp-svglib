@@ -88,8 +88,7 @@ namespace svglib
 		 * \brief Gets the value of the unit
 		 * \return A long double
 		 */
-		[[nodiscard]]
-		constexpr long double value() const noexcept
+		[[nodiscard]] constexpr long double value() const noexcept
 		{
 			return value_;
 		}
@@ -98,8 +97,7 @@ namespace svglib
 		 * \brief Gets the UnitType of unit
 		 * \return An UnitType
 		 */
-		[[nodiscard]]
-		constexpr UnitType type() const noexcept
+		[[nodiscard]] constexpr UnitType type() const noexcept
 		{
 			return type_;
 		}
@@ -142,6 +140,11 @@ namespace svglib
 	constexpr Unit operator"" _percentage( const long double value )
 	{
 		return Unit { value, UnitType::percentage };
+	}
+
+	constexpr Unit operator"" _percentage( const unsigned long long int value )
+	{
+		return Unit { static_cast<long double>( value ), UnitType::percentage };
 	}
 
 	constexpr Unit operator"" _pica( const long double value )
