@@ -4,8 +4,6 @@
 #ifndef SVGLIB_STROKE_HPP
 #define SVGLIB_STROKE_HPP
 
-#include "opacity.hpp"
-
 #include <optional>
 
 namespace svglib

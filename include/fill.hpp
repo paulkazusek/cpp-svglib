@@ -4,8 +4,6 @@
 #ifndef SVGLIB_FILL_HPP
 #define SVGLIB_FILL_HPP
 
-#include "opacity.hpp"
-
 #include <optional>
 
 namespace svglib
