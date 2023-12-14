@@ -6,7 +6,7 @@
 
 ```cpp
 constexpr auto alice_blue = Color( ColorName::alice_blue );
-std::cout << "color=\"" << alice_blue.serialize() << "\"" << std::endl;
+std::cout << std::format( R"(color="{}")", alice_blue) << std::endl;
 ```
 
 ```cpp
