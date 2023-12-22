@@ -17,9 +17,11 @@ namespace svglib
 	public:
 		constexpr Rectangle() = delete;
 
-		constexpr Rectangle( const Point& start, const Point& end )
-			: start_ { start }
-			, end_ { end }
+		constexpr Rectangle( const Unit& x, const Unit& y, const Unit& width, const Unit& height )
+			: x_ { x }
+			, y_ { y }
+			, width_ { width }
+			, height_ { height }
 		{}
 
 		constexpr ~Rectangle() override = default;
