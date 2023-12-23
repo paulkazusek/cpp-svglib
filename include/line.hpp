@@ -4,7 +4,7 @@
 #ifndef SVGLIB_LINE_HPP
 #define SVGLIB_LINE_HPP
 
-#include "serializeable.hpp"
+#include "shape.hpp"
 
 namespace svglib
 {
@@ -13,13 +13,14 @@ namespace svglib
 	/**
 	 * \brief
 	 */
-	class Line : public Serializeable
+	class Line final : public Shape
 	{
 	public:
 		constexpr Line() = delete;
 
-		constexpr Line( const Point& start, const Point& end )
-			: start_ { start }
+		constexpr Line( const Point& start, const Point& end, const Stroke& stroke )
+			: Shape( stroke )
+			, start_ { start }
 			, end_ { end }
 		{}
 
@@ -38,11 +39,12 @@ namespace svglib
 		[[nodiscard]]
 		auto serialize() const -> std::string override
 		{
-			return std::format( R"(x1="{}" y1="{}" x2="{}" y2="{}")"
+			return std::format( R"(<line x1="{}" y1="{}" x2="{}" y2="{} {} />")"
 								, start_.x()
 								, start_.y()
 								, end_.x()
 								, end_.y()
+								, stroke_.serialize()
 			);
 		}
 
