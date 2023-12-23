@@ -1,5 +1,5 @@
 //
-//  line.hpp
+//  rectangle.hpp
 
 #ifndef SVGLIB_RECTANGLE_HPP
 #define SVGLIB_RECTANGLE_HPP
