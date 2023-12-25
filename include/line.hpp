@@ -39,7 +39,7 @@ namespace svglib
 		[[nodiscard]]
 		auto serialize() const -> std::string override
 		{
-			return std::format( R"(<line x1="{}" y1="{}" x2="{}" y2="{} {} />")"
+			return std::format( R"(<line x1="{}" y1="{}" x2="{}" y2="{}" {}/>)"
 								, start_.x()
 								, start_.y()
 								, end_.x()
